@@ -1,6 +1,6 @@
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
+import java.util.zip.InflaterInputStream;
 
 public class Main {
   public static void main(String[] args){
@@ -19,6 +19,19 @@ public class Main {
            head.createNewFile();
            Files.write(head.toPath(), "ref: refs/heads/main\n".getBytes());
            System.out.println("Initialized git directory");
+         } catch (IOException e) {
+           throw new RuntimeException(e);
+         }
+       }
+       case "cat-file" -> {
+         String hash = args[2];
+         String dirHash = hash.substring(0, 2);
+         String fileHash = hash.substring(2);
+         File blobFile = new File("./.git/objects/" + dirHash + "/" + fileHash);
+         try {
+           String blob = new BufferedReader(new InputStreamReader(new InflaterInputStream(new FileInputStream(blobFile)))).readLine();
+           String content = blob.substring(blob.indexOf("\0")+1);
+           System.out.print(content);
          } catch (IOException e) {
            throw new RuntimeException(e);
          }
