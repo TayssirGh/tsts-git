@@ -37,4 +37,4 @@ This challenge was an excellent opportunity to dive deep into the inner workings
 
 Happy coding! 😄
 
-**Note**: If you're viewing this on GitHub, head over to [the challenge](https://app.codecrafters.io/courses/git/overview) to try the challenge yourself!
+**Note**: If you're viewing this on GitHub, head over to [the challenge](https://app.codecrafters.io/courses/git/overview) to try it yourself!
