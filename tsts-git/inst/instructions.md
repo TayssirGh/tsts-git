@@ -1,19 +1,19 @@
 [![progress-banner](https://backend.codecrafters.io/progress/git/adf9afdb-1a26-4757-bf2f-e882aa65a424)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
 
 This is a starting point for Java solutions to the
-["Build Your Own Git" Challenge](https://codecrafters.io/challenges/git).
+["Build Your Own service.Git" Challenge](https://codecrafters.io/challenges/git).
 
-In this challenge, you'll build a small Git implementation that's capable of
+In this challenge, you'll build a small service.Git implementation that's capable of
 initializing a repository, creating commits and cloning a public repository.
-Along the way we'll learn about the `.git` directory, Git objects (blobs,
-commits, trees etc.), Git's transfer protocols and more.
+Along the way we'll learn about the `.git` directory, service.Git objects (blobs,
+commits, trees etc.), service.Git's transfer protocols and more.
 
 **Note**: If you're viewing this repo on GitHub, head over to
 [codecrafters.io](https://codecrafters.io) to try the challenge.
 
 # Passing the first stage
 
-The entry point for your Git implementation is in `src/main/java/Main.java`.
+The entry point for your service.Git implementation is in `src/main/java/Main.java`.
 Study and uncomment the relevant code, and push your changes to pass the first
 stage:
 
@@ -30,7 +30,7 @@ That's all!
 Note: This section is for stages 2 and beyond.
 
 1. Ensure you have `java (21)` installed locally
-1. Run `./your_git.sh` to run your Git implementation, which is implemented in
+1. Run `./your_git.sh` to run your service.Git implementation, which is implemented in
    `src/main/java/Main.java`.
 1. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.
