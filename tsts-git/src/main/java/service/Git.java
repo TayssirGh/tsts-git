@@ -1,11 +1,9 @@
 package service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.zip.InflaterInputStream;
+
 public class Git {
     private static final byte[] OBJECT_TYPE_BLOB = "blob".getBytes();
     private static final byte[] SPACE = " ".getBytes();
@@ -40,5 +38,27 @@ public class Git {
         }
         return git;
     }
+    public byte[] catFile(String hash) throws FileNotFoundException, IOException {
+        String dirHash = hash.substring(0, 2);
+        String fileHash = hash.substring(2);
+        File blobFile = new File("./.git/objects/" + dirHash + "/" + fileHash);
+        try (   var inputStream = new FileInputStream(blobFile);
+                var inflaterInputStream = new InflaterInputStream(inputStream);)
+        {
+            var builder = new StringBuilder();
 
+            int value;
+            while ((value = inflaterInputStream.read()) != -1 && value != ' ') {
+                builder.append((char) value);
+            }
+
+            builder = new StringBuilder();
+            while ((value = inflaterInputStream.read()) != -1 && value != 0) {
+                builder.append((char) value);
+            }
+
+            var objectLength = Integer.parseInt(builder.toString());
+            return inflaterInputStream.readNBytes(objectLength);
+        }
+    }
 }
