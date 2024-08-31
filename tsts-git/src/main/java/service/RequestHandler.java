@@ -1,8 +1,8 @@
 package service;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.zip.InflaterInputStream;
 
 public class RequestHandler {
 
@@ -18,6 +18,12 @@ public class RequestHandler {
         final var bytes = git.catFile(hash);
         System.out.writeBytes(bytes);
     }
+    public void hashFile(String path) throws IOException, NoSuchAlgorithmException {
+        final var git = Git.open(HERE);
+        final var hash = git.hashFile(new File(path));
+        System.out.println(hash);
+    }
+
 
 
 
